@@ -8,6 +8,7 @@
     "@shoelace-style/shoelace": "^2.0.0-beta.14",
     "cra-template": "1.0.3",
     "react": "^16.13.1",
+    "react-currency-format": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
   },
