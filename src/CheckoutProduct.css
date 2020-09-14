@@ -1,7 +1,10 @@
 .checkoutProduct {
   display: flex;
-  margin: 20px 0;
+  margin: 10px 0;
+  flex-wrap: wrap;
 }
+
+
 
 .checkoutProduct__rating {
   display: flex;
@@ -11,10 +14,13 @@
   object-fit: contain;
   width: 180px;
   height: 180px;
+  margin-top: 10px;
 }
 
 .checkoutProduct__info {
   padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .checkoutProduct__title {
@@ -29,4 +35,5 @@
   margin-top: 10px;
   color: #000;
   border-color: #a88734 #9c7e31 #846a29;
+  padding: 3px 6px;
 }

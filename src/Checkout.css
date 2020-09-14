@@ -8,7 +8,7 @@
 
 .checkout__ad {
   width: 100%;
-  min-width: 300px;
+  /* min-width: 250px; */
   object-fit: contain;
   height: 8em;
   margin-bottom: 10px;
