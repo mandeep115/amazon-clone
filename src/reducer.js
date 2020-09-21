@@ -36,6 +36,13 @@ const reducer = (state, action) => {
         console.warn("can't remove");
       }
       return { ...state, basket: newBasket };
+    case "LOGIN_USER":
+      // Logic
+
+      return {
+        ...state,
+        user: action.user,
+      };
     default:
       return state;
   }

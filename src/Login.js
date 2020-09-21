@@ -1,10 +1,37 @@
 import React from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { useState } from "react";
+import { useStateValue } from "./StateProvider";
 
 function Login() {
-  const prevent = (e) => {
+  const [{ basket }, dispatch] = useStateValue();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handelEmail = (e) => {
+    setEmail(e.target.value);
+    // console.log(email);
+  };
+  const handelPassword = (e) => {
+    setPassword(e.target.value);
+    // console.log(password);
+  };
+  const handelSubmit = (e) => {
     e.preventDefault();
+    let emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let userName = email.split("@")[0];
+    if (email.match(emailFormat)) {
+      dispatch({
+        type: "LOGIN_USER",
+        user: userName,
+      });
+      // <Redirect to="/" />;
+      console.log(userName);
+    } else {
+      console.error("Invalid email");
+    }
   };
   return (
     <div className="login">
@@ -19,18 +46,23 @@ function Login() {
         <h1>Sign In</h1>
         <form>
           <h5>Email</h5>
-          <input type="text" />
+          <input type="email" value={email} onChange={handelEmail} />
           <h5>Password</h5>
-          <input type="text" />
+          <input type="password" value={password} onChange={handelPassword} />
           <button
-            onClick={prevent}
+            onClick={handelSubmit}
             type="submit"
+            value="submit"
             className="login__signInButton"
           >
             Sign In
           </button>
         </form>
-        <button onClick={prevent} className="login__registerButton">
+        <button
+          onClick={handelSubmit}
+          value="submit"
+          className="login__registerButton"
+        >
           Create Account
         </button>
       </div>
