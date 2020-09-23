@@ -4,7 +4,7 @@ import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
 import Subtotal from "./Subtotal";
 
-function Checkout() {
+function Checkout({ hasSubtotal }) {
   const [{ basket }] = useStateValue();
 
   return (
@@ -34,9 +34,7 @@ function Checkout() {
           </div>
         )}
       </div>
-      <div className="checkout__right">
-        <Subtotal />
-      </div>
+      <div className="checkout__right">{hasSubtotal && <Subtotal />}</div>
     </div>
   );
 }

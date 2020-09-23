@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useStateValue } from "./StateProvider";
 
@@ -22,14 +22,15 @@ function Login() {
     e.preventDefault();
     let emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     let userName = email.split("@")[0];
-    if (email.match(emailFormat)) {
+    if (email.match(emailFormat) && password) {
       dispatch({
         type: "LOGIN_USER",
         user: userName,
       });
-      // <Redirect to="/" />;
       console.log(userName);
+      alert("loged in succefully");
     } else {
+      alert("Enter a valid Email and password");
       console.error("Invalid email");
     }
   };

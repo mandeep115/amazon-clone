@@ -16,6 +16,7 @@ function Product({ id, title, image, price, rating }) {
         rating,
       },
     });
+    alert(`${title} added to cart`);
   };
 
   return (
@@ -34,7 +35,7 @@ function Product({ id, title, image, price, rating }) {
             ))}
         </div>
       </div>
-      <img src={image} alt="" />
+      <img loading="lazy" src={image} alt="" />
       <button onClick={addToBasket}>Add To Basket</button>
     </div>
   );
