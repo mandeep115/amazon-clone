@@ -1,11 +1,12 @@
 import React from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import { useStateValue } from "./StateProvider";
 
 function Login() {
   const [{ basket }, dispatch] = useStateValue();
+  const history = useHistory();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +29,7 @@ function Login() {
         user: userName,
       });
       console.log(userName);
-      alert("loged in succefully");
+      history.push("/");
     } else {
       alert("Enter a valid Email and password");
       console.error("Invalid email");
